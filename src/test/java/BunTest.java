@@ -30,14 +30,14 @@ public class BunTest {
 
 
     @Test
-    public void getNameBunStabTest() {
+    public void getNameBunStubTest() {
         Mockito.when(bunMock.getName()).thenReturn("Багет");
         Assert.assertEquals("Багет", bunMock.getName());
     }
 
 
     @Test
-    public void getPriceBunStabTest() {
+    public void getPriceBunStubTest() {
         Mockito.when(bunMock.getPrice()).thenReturn(250.0f);
         Assert.assertEquals(250.0f, bunMock.getPrice(), 0);
     }
