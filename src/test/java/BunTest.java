@@ -1,10 +1,11 @@
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
+
+import static org.junit.Assert.assertEquals;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -32,13 +33,13 @@ public class BunTest {
     @Test
     public void getNameBunStubTest() {
         Mockito.when(bunMock.getName()).thenReturn("Багет");
-        Assert.assertEquals("Багет", bunMock.getName());
+        assertEquals("Багет", bunMock.getName());
     }
 
 
     @Test
     public void getPriceBunStubTest() {
         Mockito.when(bunMock.getPrice()).thenReturn(250.0f);
-        Assert.assertEquals(250.0f, bunMock.getPrice(), 0);
+        assertEquals(250.0f, bunMock.getPrice(), 0);
     }
 }
