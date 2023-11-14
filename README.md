@@ -14,9 +14,13 @@
 Для запуска тестов необходимо:
 
 1. Скачать код проекта
-```sh git clone https://github.com/kakasy/Diplom_1.git```
+```sh
+ git clone https://github.com/kakasy/Diplom_1.git
+```
 
-2. Создать отчеты jacoco с помощью команды
-```sh mvn clean verify```
+3. Создать отчеты jacoco с помощью команды
+```sh
+mvn clean verify
+```
 
 Отчет находится по пути target/site/jacoco/index.html
