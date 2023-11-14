@@ -23,4 +23,4 @@
 mvn clean verify
 ```
 
-Отчет находится по пути target/site/jacoco/index.html
+Отчет находится по пути `target/site/jacoco/index.html`
