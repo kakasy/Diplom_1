@@ -1,4 +1,3 @@
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -10,8 +9,9 @@ import praktikum.Ingredient;
 import praktikum.IngredientType;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
@@ -41,7 +41,7 @@ public class BurgerTest {
 
         Mockito.verify(bunMock, Mockito.times(1)).getPrice();
 
-        Assert.assertEquals(600.0f, burger.getPrice(), 0);
+        assertEquals(600.0f, burger.getPrice(), 0);
     }
 
 
@@ -66,7 +66,7 @@ public class BurgerTest {
         Mockito.verify(ingredientMock3, Mockito.times(1)).getPrice();
         Mockito.verify(ingredientMock4, Mockito.times(1)).getPrice();
 
-        Assert.assertEquals(75.98f, burger.getPrice(), 0.1);
+        assertEquals(75.98f, burger.getPrice(), 0.1);
     }
 
 
@@ -88,7 +88,7 @@ public class BurgerTest {
 
         System.out.println(burger.getReceipt());
 
-        Assert.assertEquals("(==== " + name + " ====)\r\n" +
+        assertEquals("(==== " + name + " ====)\r\n" +
                 "= filling " + cutlet + " =\r\n" +
                 "= sauce " + caesarSauce + " =\r\n" +
                 "(==== " + name + " ====)\r\n" +
@@ -104,7 +104,7 @@ public class BurgerTest {
         burger.addIngredient(ingredientMock3);
         burger.addIngredient(ingredientMock4);
 
-        Assert.assertEquals(4, burger.ingredients.size());
+        assertEquals(4, burger.ingredients.size());
     }
 
 
@@ -114,7 +114,7 @@ public class BurgerTest {
         burger.ingredients = new ArrayList<>(List.of(ingredientMock1, ingredientMock2, ingredientMock3, ingredientMock4));
         burger.removeIngredient(2);
 
-        Assert.assertEquals(3, burger.ingredients.size());
+        assertEquals(3, burger.ingredients.size());
     }
 
 
@@ -124,7 +124,7 @@ public class BurgerTest {
         burger.ingredients = new ArrayList<>(List.of(ingredientMock1, ingredientMock2, ingredientMock3, ingredientMock4));
         burger.moveIngredient(2, 0);
 
-        Assert.assertEquals(new ArrayList<>(List.of(ingredientMock3, ingredientMock1, ingredientMock2, ingredientMock4))
+        assertEquals(new ArrayList<>(List.of(ingredientMock3, ingredientMock1, ingredientMock2, ingredientMock4))
                 , burger.ingredients);
     }
 }
