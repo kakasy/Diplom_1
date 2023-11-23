@@ -31,29 +31,37 @@ public class BurgerTest {
     @Mock
     Ingredient ingredientMock4;
 
+    private static final float BUN_PRICE1 = 300.0f;
+    private static final float BUN_PRICE2 = 19.99f;
+    private static final float EXPECTED_BURGER_PRICE1 = 600.0f;
+    private static final float INGREDIENT1_PRICE = 10.0f;
+    private static final float INGREDIENT2_PRICE = 6.0f;
+    private static final float INGREDIENT3_PRICE = 8.0f;
+    private static final float INGREDIENT4_PRICE = 12.0f;
+    private static final float EXPECTED_BURGER_PRICE2 = 75.98f;
 
     @Test
     public void getBurgerPriceTest() {
-        Mockito.when(bunMock.getPrice()).thenReturn(300.0f);
+        Mockito.when(bunMock.getPrice()).thenReturn(BUN_PRICE1);
         Burger burger = new Burger();
         burger.setBuns(bunMock);
         burger.getPrice();
 
         Mockito.verify(bunMock, Mockito.times(1)).getPrice();
 
-        assertEquals(600.0f, burger.getPrice(), 0);
+        assertEquals(EXPECTED_BURGER_PRICE1, burger.getPrice(), 0);
     }
 
 
     @Test
     public void getBurgerPriceWithIngredientTest() {
 
-        Mockito.when(bunMock.getPrice()).thenReturn(19.99f); // х2
+        Mockito.when(bunMock.getPrice()).thenReturn(BUN_PRICE2); // х2
 
-        Mockito.when(ingredientMock1.getPrice()).thenReturn(10.0f); //+
-        Mockito.when(ingredientMock2.getPrice()).thenReturn(6.0f); //+
-        Mockito.when(ingredientMock3.getPrice()).thenReturn(8.0f); //+
-        Mockito.when(ingredientMock4.getPrice()).thenReturn(12.0f); //+
+        Mockito.when(ingredientMock1.getPrice()).thenReturn(INGREDIENT1_PRICE); //+
+        Mockito.when(ingredientMock2.getPrice()).thenReturn(INGREDIENT2_PRICE); //+
+        Mockito.when(ingredientMock3.getPrice()).thenReturn(INGREDIENT3_PRICE); //+
+        Mockito.when(ingredientMock4.getPrice()).thenReturn(INGREDIENT4_PRICE); //+
 
         Burger burger = new Burger();
         burger.setBuns(bunMock);
@@ -66,7 +74,7 @@ public class BurgerTest {
         Mockito.verify(ingredientMock3, Mockito.times(1)).getPrice();
         Mockito.verify(ingredientMock4, Mockito.times(1)).getPrice();
 
-        assertEquals(75.98f, burger.getPrice(), 0.1);
+        assertEquals(EXPECTED_BURGER_PRICE2, burger.getPrice(), 0.1);
     }
 
 
